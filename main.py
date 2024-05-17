@@ -4,11 +4,12 @@ word = ['h', 'u', 'i', 's']
 whole_word = 'huis'
 word_guessed = ''
 guessed_letters = []
+attempts = 5
 
 print('galgje!!!!')
 print('Aantal letters in woord: ' + str(len(word)))
 
-while 1+1==2:
+while attempts > 0:
     guess = input('Raad een letter: ')
     guess.lower()
     
