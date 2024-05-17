@@ -24,6 +24,8 @@ while attempts > 0:
                 print('goed')
                 word_guessed += guess
                 print(word_guessed)
+            else:
+                print('fout')
             
             
     if word_guessed == whole_word:
