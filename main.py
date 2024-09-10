@@ -24,6 +24,7 @@ while attempts > 0:
     print(''.join(visual))
     print('')
     
+    ##func
     # input vragen
     guess = input('Raad een letter: ')
     guess.lower() # convert naar lowercase
