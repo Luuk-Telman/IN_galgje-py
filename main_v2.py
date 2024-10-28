@@ -13,7 +13,7 @@ guessed_letters_wrong:list = [] # lijst waar alle fout geraden letters worden op
 visual:list = [] # een lijst waar alle visuele puntjes worden ogeslagen
 attempts:int = len(word) * 2 # het aantal pogingen die de speler krijgt
 numbers:list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] # een lijst met alle nummers erin
-guess = '' # globale variable voor de speler input
+guess:str = '' # globale variable voor de speler input
 guessed:bool = False # of de speler het woord heeft geraden
 
 # de functie waar alle dingen in staan om het spel klaar te zetten
@@ -35,7 +35,7 @@ def askForInput():
     print('')
     
     guess = input('Raad een letter: ') # vraagt de speler voor een input
-    guess.lower() # verander naar lowercase
+    guess = guess.lower() # verander naar lowercase
 
 # checkt of de input in het woord zit 
 def checkIfInputIsInWord():
@@ -54,6 +54,8 @@ def checkIfInputIsInWord():
                 visual[i] = guess # veranderd de visual op de goed locatie
             
         guessed_letters.append(guess) # voegt de letter toe aan de gegokte letters
+        
+        print('Je gok was goed!')
         print('Pogingen over: ' + str(attempts)) # geeft feedback voor het aantal pogingen over
 
     else: # als de gok niet in het woord zit
@@ -61,6 +63,7 @@ def checkIfInputIsInWord():
         guessed_letters.append(guess) # voegt de letter toe aan de verkeerd geraden letters
         attempts -= 1 # verwijderd 1 poging
         
+        print('Je gok was fout!')
         print('Gegokte letters: ' + ', '.join(guessed_letters)) # laat de al gegokte foute letters zien
         print('Pogingen over: ' + str(attempts)) # geeft feedback voor het aantal pogingen over
 
@@ -85,7 +88,7 @@ def checkIfGameEnded():
     if sorted(word_guessed) == sorted(word): # als het complete woord geraden is, sort zorgt er voor dat het gesorteerd is zodat het altijd de zelfde volgorde is als we het checken
         
         print('Woord geraden!!!') 
-        print('Het woord was ' + ''.join(word))
+        print('Het woord was: ' + ''.join(word))
         
         guessed = True # zorgt er voor dat het spel geraden is
 
